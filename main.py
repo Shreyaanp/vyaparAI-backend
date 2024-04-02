@@ -9,6 +9,10 @@ app = FastAPI()
 class PromptRequest(BaseModel):
     prompt: str
 
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
+
 @app.post("/process/")
 async def process_content(request: PromptRequest):
     try:
@@ -18,4 +22,5 @@ async def process_content(request: PromptRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 8000))  # Use environment variable PORT if available, else default to 8000
+    uvicorn.run(app, host="0.0.0.0", port=port)
