@@ -1,5 +1,15 @@
 # vyaparAI-backend
 
+You can test this in Postman.
+```bash 
+curl -X 'POST' \
+  'https://vyaparai-backend.onrender.com/process/' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{"prompt":"Name of the product : intitle:kala namak rice"}'
+```
+just add your product name to intitle in the above post request
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
